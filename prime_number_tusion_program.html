@@ -1,0 +1,41 @@
+<html>
+    <head><title>Custom Calculater</title>
+    <style>
+        body{
+            font-family:Arial;padding:20px;
+        }
+        input,button{
+            margin:5px;padding:10px;
+        }
+    </style></head>
+    <body>
+        <h2>Mini Calculater with Prime Check</h2>
+        <input type="number" id="num" placeholder="Enter a Number"><br>
+        <button onclick="Checkprime()">Check Prime</button>
+        <p id="result"></p>
+        <script>
+            function Checkprime()
+            {
+                const num=parseInt(document.getElementById("num").value);
+                let isPrime=true;
+                if(num<=1)
+            {
+                isPrime=false;
+            }
+            else
+            {
+                for(let i=2;i<=Math.floor(num/2);i++)
+            {
+                if(num%i===0)
+            {
+                isPrime=false;
+                break;
+            }
+            }
+            }
+            const result=document.getElementById("result");
+            result.innerText=isPrime?`${num} is a prime Number.`:`${num} is not a prime Number`;
+            }
+        </script>
+    </body>
+</html>
